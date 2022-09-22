@@ -12,6 +12,8 @@ export const BudgetsContext = createContext({
   deleteBudget: () => {},
 });
 
+export const UNCATEGORIZED_BUDGET_ID = "Uncategorized";
+
 export const useBudgets = () => {
   return useContext(BudgetsContext);
 };

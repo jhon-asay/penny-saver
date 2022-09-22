@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useBudgets } from "../../contexts/butgets.context";
 
-const AddBudgetModal = (show, handleClose) => {
+const AddBudgetModal = ({ show, handleClose }) => {
   const nameRef = useRef();
   const maxRef = useRef();
   const { addBudget } = useBudgets();
@@ -29,7 +29,7 @@ const AddBudgetModal = (show, handleClose) => {
             <Form.Control ref={nameRef} type="text" required />
           </Form.Group>
           <Form.Group className="mb-3" controlId="max">
-            <Form.Label>Budget Limit</Form.Label>
+            <Form.Label>Limit</Form.Label>
             <Form.Control
               ref={maxRef}
               type="number"
