@@ -2,7 +2,15 @@ import { Card, ProgressBar, Button, Stack } from "react-bootstrap";
 import { currencyFormatter } from "../../utils/utils";
 import { getProgressBarVariant } from "../progress-bar/progress-bar.component";
 
-const BudgetCard = ({ name, amount, max, gray, onAddExpenseClick }) => {
+const BudgetCard = ({
+  name,
+  amount,
+  max,
+  gray,
+  onAddExpenseClick,
+  onViewExpensesClick,
+  hideButtons,
+}) => {
   const expense = currencyFormatter.format(amount);
   const limit = currencyFormatter.format(max);
 
@@ -32,16 +40,20 @@ const BudgetCard = ({ name, amount, max, gray, onAddExpenseClick }) => {
             now={amount}
           />
         )}
-        <Stack direction="horizontal" gap="2" className="mt-4">
-          <Button
-            variant="outline-primary"
-            className="ms-auto"
-            onClick={onAddExpenseClick}
-          >
-            Add Expense
-          </Button>
-          <Button variant="outline-secondary">View Expense</Button>
-        </Stack>
+        {!hideButtons && (
+          <Stack direction="horizontal" gap="3" className="mt-4">
+            <Button
+              variant="outline-primary"
+              className="ms-auto"
+              onClick={onAddExpenseClick}
+            >
+              Add Expense
+            </Button>
+            <Button variant="outline-secondary" onClick={onViewExpensesClick}>
+              View Expenses
+            </Button>
+          </Stack>
+        )}
       </Card.Body>
     </Card>
   );

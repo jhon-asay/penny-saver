@@ -42,15 +42,21 @@ export const BudgetsProvider = ({ children }) => {
   };
 
   const deleteExpense = ({ id }) => {
-    setBudgets((prevBudgets) => {
-      return prevBudgets.filter((budget) => budget.id !== id);
+    setExpenses((prevExpenses) => {
+      return prevExpenses.filter((expense) => expense.id !== id);
     });
   };
 
   const deleteBudget = ({ id }) => {
-    // TODO: Deal with expenses
     setExpenses((prevExpenses) => {
-      return prevExpenses.filter((expense) => expense.id !== id);
+      return prevExpenses.map((expense) => {
+        if (expense.budgetId !== id) return expense;
+        return { ...expense, budgetId: UNCATEGORIZED_BUDGET_ID };
+      });
+    });
+
+    setBudgets((prevBudgets) => {
+      return prevBudgets.filter((budget) => budget.id !== id);
     });
   };
 

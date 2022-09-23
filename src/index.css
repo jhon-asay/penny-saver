@@ -7,7 +7,6 @@
 }
 
 html {
-  font-size: 62.5%;
   box-sizing: border-box;
 }
 
@@ -18,17 +17,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1.6rem;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  gap: 1rem;
-  align-items: flex-start;
 }
